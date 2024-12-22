@@ -1,0 +1,15 @@
+# Logs
+logs/
+*.log
+
+# Visual Studio
+.vs/
+
+# Exclude build directories across the project
+**/bin/
+**/obj/
+
+**/.vscode
+**/package-lock.json
+**/.editorconfig
+**/nuget.config
