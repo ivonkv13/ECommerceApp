@@ -36,11 +36,6 @@ namespace ECommerceApp.Server.Controllers.Products
         [HttpPost("CreateProduct")]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductDto dto)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             await _service.AddProductAsync(dto);
 
             return Ok(dto);
@@ -50,8 +45,6 @@ namespace ECommerceApp.Server.Controllers.Products
         public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductDto dto)
         {
             if (!await _service.DoesProductExistAsync(dto.Id)) return NotFound();
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             await _service.UpdateProductAsync(dto);
 
