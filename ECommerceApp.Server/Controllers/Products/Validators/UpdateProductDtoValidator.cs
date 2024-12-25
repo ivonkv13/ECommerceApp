@@ -6,12 +6,8 @@ namespace ECommerceApp.Server.Controllers.Products.Validators
 {
     public class UpdateProductDtoValidator : AbstractValidator<UpdateProductDto>
     {
-        private readonly IProductService _productService;
-
-        public UpdateProductDtoValidator(IProductService productService)
+        public UpdateProductDtoValidator()
         {
-            _productService = productService;
-
             RuleFor(dto => dto.Id)
                 .NotEmpty()
                 .WithMessage("Product Id is required.");
